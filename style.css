@@ -47,6 +47,7 @@ header {
     text-align: center;
     padding: 15px;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer; /* Make entire card clickable */
 }
 
 .card:hover {
@@ -67,26 +68,7 @@ header {
 }
 
 .card-body .button {
-    display: inline-block;
-    background-color: #0073e6;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-    text-align: left; /* Align text and icon to the left */
-}
-
-.card-body .button i {
-    margin-right: 10px; /* Space between icon and text */
-    font-size: 18px; /* Adjust icon size */
-    vertical-align: middle; /* Align icon with the text */
-}
-
-/* Button hover effect */
-.card-body .button:hover {
-    background-color: #005bb5;
+    display: none; /* Hide the button now that the entire card is clickable */
 }
 
 /* Modal */
