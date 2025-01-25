@@ -1,11 +1,11 @@
 {
-    "name": "Livery 1",
-    "description": "This is a description of Livery 1.",
+    "name": "C90B The Pilot Club",
+    "description": "This is a custom livery for the C90B for Xplane. The livery is made for The Pilot Club",
     "images": [
-        "images/livery1.jpg",
+        "images/livery1.webp",
         "images/livery1_2.jpg",
         "images/livery1_3.jpg"
     ],
-    "xplaneForumsLink": "https://forums.x-plane.org/index.php?/files/file/1-livery1/",
+    "xplaneForumsLink": "https://forums.x-plane.org/index.php?/files/file/93541-the-pilot-club-livery/",
     "xplaneToLink": "https://www.xplane.to/download/livery1/"
 }
