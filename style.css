@@ -67,8 +67,32 @@ header {
     color: #fff;
 }
 
+/* Button Container - Center and align buttons */
+.card-body .button-container {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+    margin-top: 15px;
+}
+
 .card-body .button {
-    display: none; /* Hide the button now that the entire card is clickable */
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.card-body .button:hover {
+    background-color: #005bb5;
+}
+
+.card-body .button i {
+    margin-right: 8px; /* Space between icon and text */
 }
 
 /* Modal */
