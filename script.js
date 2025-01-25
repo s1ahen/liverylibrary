@@ -1,6 +1,22 @@
 let currentPage = 1;
 const liveriesPerPage = 10;
-const liveriesData = []; // Placeholder for your actual liveries data
+let liveriesData = [
+    {
+        name: 'Airline Livery 1',
+        photos: ['https://via.placeholder.com/250x150?text=Livery+1'],
+        description: 'This is a detailed description of Airline Livery 1.',
+        xplaneForumsLink: 'https://www.example.com/forum',
+        xplaneToLink: 'https://www.example.com/to'
+    },
+    {
+        name: 'Airline Livery 2',
+        photos: ['https://via.placeholder.com/250x150?text=Livery+2'],
+        description: 'This is a detailed description of Airline Livery 2.',
+        xplaneForumsLink: 'https://www.example.com/forum',
+        xplaneToLink: 'https://www.example.com/to'
+    }
+    // Add more liveries as needed
+];
 
 // Function to fetch and display liveries based on the current page
 function loadLiveries() {
