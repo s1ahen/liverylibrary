@@ -1,24 +1,36 @@
-/* Basic Styles */
+/* Basic Dark Theme Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
     text-align: center;
     margin-top: 30px;
+    color: #ffffff;
 }
 
 #search {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     width: 60%;
     max-width: 400px;
     margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: #e0e0e0;
 }
 
+#search::placeholder {
+    color: #999;
+}
+
+/* Card Container */
 #livery-cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -29,33 +41,40 @@ header {
 .card {
     width: 250px;
     margin: 20px;
-    background-color: white;
+    background: linear-gradient(135deg, #333, #555); /* Gradient background */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .card img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .card-body h3 {
     font-size: 18px;
     margin-top: 10px;
+    color: #fff;
 }
 
 .card-body .button {
+    display: inline-block;
     background-color: #0073e6;
     color: white;
-    padding: 8px 16px;
-    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
     text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .card-body .button:hover {
@@ -75,6 +94,7 @@ header {
     border-radius: 5px;
     margin: 0 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #pagination button:hover {
@@ -82,7 +102,7 @@ header {
 }
 
 #pagination button:disabled {
-    background-color: #ccc;
+    background-color: #333;
     cursor: not-allowed;
 }
 
@@ -96,20 +116,22 @@ header {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #1f1f1f;
     margin: 15% auto;
-    padding: 20px;
+    padding: 30px;
     width: 80%;
     max-width: 600px;
     border-radius: 8px;
+    color: #e0e0e0;
 }
 
 .close {
-    color: #aaa;
+    color: #e0e0e0;
     font-size: 28px;
     font-weight: bold;
     position: absolute;
@@ -119,7 +141,7 @@ header {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
@@ -129,5 +151,41 @@ header {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Modal Button Styles */
+#modal-buttons .button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#modal-buttons .button:hover {
+    background-color: #005bb5;
+}
+
+/* Pagination Buttons */
+#pagination button {
+    background: #333;
+    color: #e0e0e0;
+}
+
+#pagination button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+/* Focus for Accessibility */
+#search:focus {
+    outline: none;
+    border: 2px solid #0073e6;
+}
+
+#pagination button:focus {
+    outline: none;
+    border: 2px solid #0073e6;
 }
