@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Plane Liveries</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>X-Plane Liveries</h1>
+        <input type="text" id="search" placeholder="Search for a livery..." oninput="searchLiveries()">
+    </header>
+
+    <div id="livery-cards-container">
+        <!-- Liveries will be dynamically added here -->
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination">
+        <button id="prev-page" onclick="changePage(-1)">Previous</button>
+        <button id="next-page" onclick="changePage(1)">Next</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="livery-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+
+            <!-- Image carousel container -->
+            <div id="modal-images-container"></div>
+
+            <p id="modal-description"></p>
+            <div id="modal-buttons">
+                <a id="xplane-forums" href="#" target="_blank" class="button">X-Plane Forums</a>
+                <a id="xplane-to" href="#" target="_blank" class="button">X-Plane.to</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
