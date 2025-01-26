@@ -1,101 +1,75 @@
-let currentPage = 1;
-const liveriesPerPage = 10;
-let liveriesData = [
+const cardsData = [
     {
-        name: 'Airline Livery 1',
-        photos: ['https://via.placeholder.com/250x150?text=Livery+1'],
-        description: 'This is a detailed description of Airline Livery 1.',
-        xplaneForumsLink: 'https://www.example.com/forum',
-        xplaneToLink: 'https://www.example.com/to'
+      title: 'C90B',
+      description: 'The Pilot Club Livery for the C90B in X-plane',
+      image: 'https://media.discordapp.net/attachments/1313249394618925099/1315304852297093171/Screenshot_2024-12-08_at_14.11.22.png?ex=6796dd59&is=67958bd9&hm=2d9435f07066361958e4a49829b47c3780e12c81c253a2337c13e7a5d8960d4a&=&format=webp&quality=lossless&width=1930&height=952',
+      buyLink: 'https://forums.x-plane.org/index.php?/files/file/93541-the-pilot-club-livery/'
     },
     {
-        name: 'Airline Livery 2',
-        photos: ['https://via.placeholder.com/250x150?text=Livery+2'],
-        description: 'This is a detailed description of Airline Livery 2.',
-        xplaneForumsLink: 'https://www.example.com/forum',
-        xplaneToLink: 'https://www.example.com/to'
-    }
-    // Add more liveries as needed
-];
+      title: 'E-Jets E175',
+      description: 'The Pilot Club Livery for the E-Jets E175 from X-Crafts. Livery made for The Pilot Club',
+      image: 'https://forums.x-plane.org/screenshots/monthly_2024_12/Screenshot2024-12-25at12_13.30-min.png.a6c8f7be6ae48f21dc90e4a51f78e448.png',
+      buyLink: 'https://forums.x-plane.org/index.php?/files/file/93713-the-pilot-club-livery-for-x-crafts-e175/'
+    },
+    {
+        title: 'C90B',
+        description: 'The Pilot Club Livery for the C90B in X-plane',
+        image: 'https://media.discordapp.net/attachments/1313249394618925099/1315304852297093171/Screenshot_2024-12-08_at_14.11.22.png?ex=6796dd59&is=67958bd9&hm=2d9435f07066361958e4a49829b47c3780e12c81c253a2337c13e7a5d8960d4a&=&format=webp&quality=lossless&width=1930&height=952',
+        buyLink: 'https://www.toyota.com/supra/build/'
+    },
+    {
+        title: 'C90B',
+        description: 'The Pilot Club Livery for the C90B in X-plane',
+        image: 'https://media.discordapp.net/attachments/1313249394618925099/1315304852297093171/Screenshot_2024-12-08_at_14.11.22.png?ex=6796dd59&is=67958bd9&hm=2d9435f07066361958e4a49829b47c3780e12c81c253a2337c13e7a5d8960d4a&=&format=webp&quality=lossless&width=1930&height=952',
+        buyLink: 'https://www.toyota.com/supra/build/'
+    },
 
-// Function to fetch and display liveries based on the current page
-function loadLiveries() {
-    const container = document.getElementById('livery-cards-container');
-    container.innerHTML = ''; // Clear previous cards
+    // Add more cards here
+  ];
+  
+ // Get references to the DOM elements
+const cardsContainer = document.getElementById('cards-container');
+const searchBar = document.getElementById('search-bar');
 
-    const start = (currentPage - 1) * liveriesPerPage;
-    const end = start + liveriesPerPage;
-    const liveriesToShow = liveriesData.slice(start, end);
-
-    liveriesToShow.forEach(livery => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML = `
-            <img src="${livery.photos[0]}" alt="Livery Image">
-            <div class="card-body">
-                <h3>${livery.name}</h3>
-            </div>
-        `;
-
-        // Add a click event to open the modal when the entire card is clicked
-        card.addEventListener('click', () => openModal(livery));
-
-        container.appendChild(card);
-    });
-
-    updatePagination();
+// Function to create a card
+function createCard({ title, description, image, buyLink }) {
+  const card = document.createElement('div');
+  card.className = 'container';
+  card.innerHTML = `
+    <div class="wrapper">
+      <div class="banner-image" style="background-image: url(${image});"></div>
+      <h1>${title}</h1>
+      <p>${description}</p>
+    </div>
+    <div class="button-wrapper"> 
+      <a href="${buyLink}" class="btn fill" target="_blank">Download</a>
+    </div>
+  `;
+  return card;
 }
 
-// Function to open the modal with livery details
-function openModal(livery) {
-    const modal = document.getElementById('livery-modal');
-    document.getElementById('modal-title').innerText = livery.name;
-
-    const modalImagesContainer = document.getElementById('modal-images-container');
-    modalImagesContainer.innerHTML = ''; // Clear previous images
-    livery.photos.forEach(photo => {
-        const img = document.createElement('img');
-        img.src = photo;
-        img.alt = `${livery.name} Image`;
-        img.classList.add('modal-image');
-        modalImagesContainer.appendChild(img);
-    });
-
-    document.getElementById('modal-description').innerText = livery.description;
-    document.getElementById('xplane-forums').href = livery.xplaneForumsLink;
-    document.getElementById('xplane-to').href = livery.xplaneToLink;
-
-    modal.style.display = 'block';
+// Function to display all cards
+function displayCards(data) {
+  // Clear the container before displaying cards
+  cardsContainer.innerHTML = '';
+  // Add each card to the container
+  data.forEach(cardData => {
+    const card = createCard(cardData);
+    cardsContainer.appendChild(card);
+  });
 }
 
-// Close the modal
-function closeModal() {
-    document.getElementById('livery-modal').style.display = 'none';
-}
+// Event listener for search functionality
+searchBar.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase();
+  // Filter cards based on the search query
+  const filteredCards = cardsData.filter(card =>
+    card.title.toLowerCase().includes(query) || 
+    card.description.toLowerCase().includes(query)
+  );
+  // Display the filtered cards
+  displayCards(filteredCards);
+});
 
-// Handle pagination
-function changePage(direction) {
-    currentPage += direction;
-    loadLiveries();
-}
-
-// Update pagination buttons visibility
-function updatePagination() {
-    document.getElementById('prev-page').disabled = currentPage === 1;
-    document.getElementById('next-page').disabled = currentPage * liveriesPerPage >= liveriesData.length;
-}
-
-// Search liveries by name
-function searchLiveries() {
-    const query = document.getElementById('search').value.toLowerCase();
-    const filteredLiveries = liveriesData.filter(livery => 
-        livery.name.toLowerCase().includes(query)
-    );
-    liveriesData.length = 0; // Clear current liveries data
-    liveriesData.push(...filteredLiveries); // Populate filtered liveries
-    currentPage = 1; // Reset to first page
-    loadLiveries(); // Re-load the liveries with the new search filter
-}
-
-// Initialize page
-loadLiveries();
+// Initialize by displaying all cards
+displayCards(cardsData);

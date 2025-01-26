@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X-Plane Liveries</title>
-
-    <!-- Include Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Include Russo One Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-
-    <!-- Link to custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arvid's Liveries</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>X-Plane Liveries</h1>
-        <input type="text" id="search" placeholder="Search for a livery..." oninput="searchLiveries()">
-    </header>
-
-    <div id="livery-cards-container">
-        <!-- Liveries will be dynamically added here -->
+  <header>
+    <h1 class="page-title">Arvid's Liveries</h1>
+  </header>
+  <div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search cards..." />
+  </div>
+  <div class="cards-container" id="cards-container">
+    <!-- Cards will be dynamically generated here -->
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://www.facebook.com/tpcflightsim/" target="_blank" class="social-icon">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/tpc_media/" target="_blank" class="social-icon">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+      <div class="website-links">
+        <a href="thepilotclub.org" target="_blank">The Pilot Club</a>
+        <a href="discord.gg/thepilotclub" target="_blank">The Pilot Club Discord</a>
+      </div>
+      <p>&copy; 2023 Arvid's Liveries. All rights reserved.</p>
     </div>
-
-    <!-- Pagination -->
-    <div id="pagination">
-        <button id="prev-page" onclick="changePage(-1)">Previous</button>
-        <button id="next-page" onclick="changePage(1)">Next</button>
-    </div>
-
-    <!-- Modal for detailed livery view -->
-    <div id="livery-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modal-title"></h2>
-
-            <!-- Image carousel -->
-            <div id="modal-images-container"></div>
-
-            <p id="modal-description"></p>
-            <div id="modal-buttons">
-                <a id="xplane-forums" href="#" target="_blank" class="button">
-                    <i class="fas fa-users"></i> X-Plane Forums
-                </a>
-                <a id="xplane-to" href="#" target="_blank" class="button">
-                    <i class="fas fa-cloud-download-alt"></i> X-Plane.to
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  </footer>
+  <script src="./script.js"></script>
 </body>
 </html>
